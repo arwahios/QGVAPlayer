@@ -17,6 +17,9 @@ typedef void (^QGVAFailedBlock)(NSError *error);
 /// Full-screen / gift VAP host. Feature code should go through EffectKit, not this type.
 @interface QGVAPlayerView : UIView
 
+/// Defaults to `NO` (audio on). Must be set before `playFileAtPath:` — VAP ignores mid-play changes.
+- (void)setMuted:(BOOL)muted;
+
 /// `tagContents`: VAP fusion tag → text or image URL string.
 - (void)playFileAtPath:(NSString *)path
            tagContents:(NSDictionary<NSString *, NSString *> *)tagContents

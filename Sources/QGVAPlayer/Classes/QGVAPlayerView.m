@@ -25,9 +25,13 @@
         self.userInteractionEnabled = NO;
         self.hwd_enterBackgroundOP = HWDMP4EBOperationTypeStop;
         [self enableOldVersion:YES];
-        [self setMute:YES];
+        [self setMute:NO];
     }
     return self;
+}
+
+- (void)setMuted:(BOOL)muted {
+    [self setMute:muted];
 }
 
 - (void)playFileAtPath:(NSString *)path

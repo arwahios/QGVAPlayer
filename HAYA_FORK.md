@@ -8,6 +8,7 @@
   - Metal dispose / stop 释放与线程安全
   - 小尺寸 drawable scale 限制
 - Feature 只依赖 EffectKit；换播放器只改 Adapter
+- `QGVAPlayerView` 默认 `setMute:NO`（礼物音效）；`setMuted:` 须在 play 前调用
 
 推远程示例：
 
@@ -19,6 +20,6 @@ git add .
 git commit -m "chore: QGVAPlayer iOS1.0.19 + Haya safety patches"
 git remote add origin git@github.com:arwahios/QGVAPlayer.git
 git push -u origin main
-git tag 1.0.19-haya.1
-git push origin 1.0.19-haya.1
+git tag 1.0.19-haya.2
+git push origin 1.0.19-haya.2
 ```
