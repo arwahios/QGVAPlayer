@@ -7,6 +7,8 @@
 //
 //  Based on Tencent/vap iOS1.0.19 (+ Haya safety patches). Feature must not import this
 //  directly — only EffectKit Adapter.
+//  Product is `.dynamic` so the host app embeds one QGVAPlayer.framework that Flutter
+//  (and native EffectKit) can share at runtime.
 //
 
 import PackageDescription
@@ -15,7 +17,7 @@ let package = Package(
     name: "QGVAPlayer",
     platforms: [.iOS(.v16)],
     products: [
-        .library(name: "QGVAPlayer", targets: ["QGVAPlayer"])
+        .library(name: "QGVAPlayer", type: .dynamic, targets: ["QGVAPlayer"])
     ],
     targets: [
         .target(

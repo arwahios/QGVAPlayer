@@ -1,7 +1,8 @@
 # Haya QGVAPlayer
 
 - Upstream: [Tencent/vap](https://github.com/Tencent/vap) tag `iOS1.0.19`（开源仓已停止维护，仍可用于现有 `.mp4` VAP 物料）
-- 接入方式：SPM；**禁止** App Podfile `post_install` 改源码
+- 接入方式：SPM；产物为 **动态 framework**（`type: .dynamic`），便于宿主 Embed 后与 Flutter 共用同一份运行时；**禁止** App Podfile `post_install` 改源码
+- App Target → Frameworks, Libraries, and Embedded Content：对 `QGVAPlayer` 选 **Embed & Sign**（经 EffectKit 传递依赖时若未自动出现，在 App 上再显式链一次）
 - 安全补丁已直接打进源码（对齐现网必要项，标记 `Haya:`）：
   - skip `MTKTextureLoader`
   - YCbCr attachment 空指针保护
@@ -13,13 +14,6 @@
 推远程示例：
 
 ```bash
-# 在 arwahios 下新建空仓 QGVAPlayer 后：
-cd Packages/ThirdParty/QGVAPlayer
-git init
-git add .
-git commit -m "chore: QGVAPlayer iOS1.0.19 + Haya safety patches"
-git remote add origin git@github.com:arwahios/QGVAPlayer.git
-git push -u origin main
-git tag 1.0.19-haya.2
-git push origin 1.0.19-haya.2
+git tag 1.0.19-haya.3
+git push origin main 1.0.19-haya.3
 ```
